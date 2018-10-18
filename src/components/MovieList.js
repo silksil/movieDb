@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { fetchMovie } from '../actions/index';
 import { Link } from 'react-router-dom';
 import { IMAGE_URL } from '../config';
+import PropTypes from 'prop-types';
 
 class MovieList extends Component {
   render() {
     const movies = this.props.movies;
-    if (movies.length == 0) {
+    if (Object.keys(movies).length === 0 && movies.constructor === Object) {
       return <div className="loader"> loading </div>;
     }
 
@@ -29,5 +30,9 @@ class MovieList extends Component {
 function mapStateToProps({ movies }) {
   return { movies };
 }
+
+MovieList.propTypes = {
+  movies: PropTypes.array.isRequired,
+};
 
 export default connect(mapStateToProps, { fetchMovie })(MovieList);

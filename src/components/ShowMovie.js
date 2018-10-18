@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchMovie, resetStore } from '../actions/index';
-import { withRouter } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 class ShowMovie extends Component {
   componentDidMount() {
@@ -15,7 +15,6 @@ class ShowMovie extends Component {
   }
 
   renderTrailer(trailers){
-    console.log(trailers)
     if (!Array.isArray(trailers) || !trailers.length ) {
       return <div> No trailer available </div>;
     }
@@ -36,7 +35,8 @@ class ShowMovie extends Component {
 
   render() {
     const { movie } = this.props;
-    if (movie.length == 0  ) {
+
+    if (Object.keys(movie).length === 0 && movie.constructor === Object) {
       return <div className="loader"> loading </div>;
     }
 
@@ -58,5 +58,9 @@ class ShowMovie extends Component {
 function mapStateToProps({ movie }) {
   return { movie };
 }
+
+ShowMovie.propTypes = {
+  movie: PropTypes.object.isRequired,
+};
 
 export default connect(mapStateToProps, { fetchMovie, resetStore })(ShowMovie);
