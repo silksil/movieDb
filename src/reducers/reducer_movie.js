@@ -1,4 +1,3 @@
-import { LOCATION_CHANGE } from 'react-router-redux';
 import { FETCH_MOVIE, RESET_STORE } from '../actions/types';
 
 export default function(state = [], action) {
