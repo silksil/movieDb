@@ -33,12 +33,12 @@ class ShowMovie extends Component {
     }
 
     return (
-      <div>
+      <div className="show-page">
         <h1> {movie.original_title} </h1>
         <p> {movie.overview} </p>
         <div>
           <h2> Trailers </h2>
-          <ul>
+          <ul className="video-list">
             {this.renderTrailer(movie.videos.results)}
           </ul>
         </div>

@@ -7,8 +7,14 @@ class Home extends Component {
   render() {
     return(
       <div>
+        <div className="header">
+          <h1> MovieTrail </h1>
+          <h2> Your library for movie trailers </h2>
+        </div>
         <SearchBar />
-        <MovieList />
+        <ul className="video-list">
+          <MovieList />
+        </ul>
       </div>
     );
   }

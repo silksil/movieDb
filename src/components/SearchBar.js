@@ -7,7 +7,7 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: ' ' };
+    this.state = { term: '' };
   }
 
   componentDidMount() {
@@ -23,6 +23,7 @@ class SearchBar extends Component {
     return (
       <div className="search-bar">
         <input
+          className="shadow"
           value={ this.state.term }
           onChange={ event => this.onSearchTermChange(event.target.value)}/>
       </div>

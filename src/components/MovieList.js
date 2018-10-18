@@ -10,10 +10,12 @@ class VideoList extends Component {
     const movies = this.props.movies;
     return _.map(movies, movie => {
       return (
-        <li className="video-list" key={movie.id}>
-          <Link className="video-item" to={`/movie/${movie.id}`}>
-            <img src={`${IMAGE_URL}${movie.poster_path}`} alt={`'Poster'${movie.title}`}/>
-            <h1> {movie.title} </h1>
+        <li key={movie.id}>
+          <Link to={`/movie/${movie.id}`}>
+            <div className="video-item shadow">
+              <img className="poster shadow" src={`${IMAGE_URL}${movie.poster_path}`} alt={`'Poster'${movie.title}`}/>
+              <h1> {movie.title} </h1>
+            </div>
           </Link>
         </li>
       );
