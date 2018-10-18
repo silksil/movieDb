@@ -19,10 +19,9 @@ class MovieList extends Component {
         </li>
       );
    });
- }
+  }
   render() {
     const movies = this.props.movies;
-
     if (!movies.length) {
       return null;
     }
