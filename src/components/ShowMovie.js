@@ -18,6 +18,7 @@ class ShowMovie extends Component {
     if (!Array.isArray(trailers) || !trailers.length ) {
       return <div> No trailer available </div>;
     }
+    
     return trailers.map(trailer => {
       const videoTitle = trailer.name;
       const videoId = trailer.id;
@@ -37,7 +38,7 @@ class ShowMovie extends Component {
     const { movie } = this.props;
 
     if (Object.keys(movie).length === 0 && movie.constructor === Object) {
-      return <div className="loader" />
+      return <div className="loader" />;
     }
 
     return (

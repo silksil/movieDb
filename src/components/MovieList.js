@@ -6,12 +6,7 @@ import { IMAGE_URL } from '../config';
 import PropTypes from 'prop-types';
 
 class MovieList extends Component {
-  render() {
-    const movies = this.props.movies;
-    if (Object.keys(movies).length === 0 && movies.constructor === Object) {
-      return <div className="loader" />;
-    }
-
+  renderMovies(movies){
     return movies.map(movie => {
       return (
         <li key={movie.id}>
@@ -24,6 +19,24 @@ class MovieList extends Component {
         </li>
       );
    });
+ }
+  render() {
+    const movies = this.props.movies;
+
+    if (!movies.length) {
+      return null;
+    }
+
+    return (
+      <div>
+        <div className="video-list">
+          {this.renderMovies(movies)}
+        </div>
+        <button type="submit" onClick={() => this.props.onLoadMore() }>
+          Load more movies
+        </button>
+      </div>
+    );
   }
 }
 

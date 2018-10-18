@@ -2,14 +2,16 @@ import axios from 'axios';
 import { API_KEY, API_URL}  from '../config.js';
 import { FETCH_MOVIES, FETCH_MOVIE, RESET_STORE } from './types';
 
-export function fetchMovies(term) {
-  const urlPopular = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-  const urlSearch = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${term.trim()}&page=1`;
+export function fetchMovies(term, page) {
+  const urlPopular = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`;
+  const urlSearch = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${term.trim()}&page=${page}`;
   let url = '';
 
   if (term.trim() === '') {
-    url = urlPopular
-  } else { url = urlSearch };
+    url = urlPopular;
+  } else {
+    url = urlSearch;
+  }
 
   const request = axios.get(url);
 
