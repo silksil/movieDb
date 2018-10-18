@@ -37,7 +37,7 @@ class ShowMovie extends Component {
     const { movie } = this.props;
 
     if (Object.keys(movie).length === 0 && movie.constructor === Object) {
-      return <div className="loader"> loading </div>;
+      return <div className="loader" />
     }
 
     return (

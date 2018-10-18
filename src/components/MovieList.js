@@ -9,7 +9,7 @@ class MovieList extends Component {
   render() {
     const movies = this.props.movies;
     if (Object.keys(movies).length === 0 && movies.constructor === Object) {
-      return <div className="loader"> loading </div>;
+      return <div className="loader" />;
     }
 
     return movies.map(movie => {
