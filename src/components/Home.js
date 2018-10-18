@@ -11,7 +11,6 @@ class Home extends Component {
       term: '',
       page: 1,
     };
-
     this.videoSearch = this.videoSearch.bind(this);
     this.loadMore = this.loadMore.bind(this);
   }
@@ -22,16 +21,15 @@ class Home extends Component {
 
   videoSearch(term){
     this.props.resetStore();
-    this.setState({
-      page: 1,
-      term,
-    });
-    this.props.fetchMovies(this.state.term, this.state.page);
-  }
+    this.setState({ page: 1, term }, () => {
+      this.props.fetchMovies(this.state.term, this.state.page);
+    })
+  };
 
   loadMore(){
-    this.state.page++;
-    this.props.fetchMovies(this.state.term, this.state.page);
+    this.setState({ page: this.state.page + 1 }, () => {
+      this.props.fetchMovies(this.state.term, this.state.page);
+    });
   }
 
   render() {
