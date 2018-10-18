@@ -7,7 +7,7 @@ export function fetchMovies(term) {
   const urlSearch = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${term.trim()}&page=1`;
   let url = '';
 
-  if(term.trim() === '') {
+  if (term.trim() === '') {
     url = urlPopular
   } else { url = urlSearch };
 
