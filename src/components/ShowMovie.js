@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchMovie } from '../actions/index';
+import { fetchMovie, resetStore } from '../actions/index';
+import { withRouter } from "react-router-dom";
 
 class ShowMovie extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.fetchMovie(id);
+  }
+
+  componentWillUnmount() {
+    this.props.resetStore();
   }
 
   renderTrailer(trailers){
@@ -28,7 +33,7 @@ class ShowMovie extends Component {
 
   render() {
     const { movie } = this.props;
-    if(movie.length == 0  ) {
+    if (movie.length == 0  ) {
       return <div className="loader"> loading </div>;
     }
 
@@ -51,4 +56,4 @@ function mapStateToProps({ movie }) {
   return { movie };
 }
 
-export default connect(mapStateToProps, { fetchMovie })(ShowMovie);
+export default connect(mapStateToProps, { fetchMovie, resetStore })(withRouter(ShowMovie));

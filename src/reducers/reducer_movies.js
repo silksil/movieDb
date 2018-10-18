@@ -1,10 +1,11 @@
-import { FETCH_MOVIES } from '../actions/types';
-import { arrayToObject } from '../helpers/array_to_object';
+import { FETCH_MOVIES, RESET_STORE } from '../actions/types';
 
-export default function(state = {}, action) {
+export default function(state = [], action) {
   switch (action.type) {
+    case RESET_STORE:
+      return [];
     case FETCH_MOVIES:
-      return arrayToObject(action.payload.data.results, 'id')
+      return [...state, ...action.payload.data.results];
     default:
       return state;
   }

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchMovies} from '../actions/index';
+import { fetchMovies, resetStore } from '../actions/index';
 import _ from 'lodash';
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: '' };
+    this.state = { term: ' ' };
   }
 
   componentDidMount() {
@@ -15,6 +15,7 @@ class SearchBar extends Component {
   }
 
   onSearchTermChange(term) {
+    this.props.resetStore();
     this.setState({ term });
     this.props.fetchMovies(term);
   }
@@ -31,4 +32,4 @@ class SearchBar extends Component {
   }
 }
 
-export default connect(null, { fetchMovies })(SearchBar);
+export default connect(null, { fetchMovies, resetStore })(SearchBar);

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API_KEY, API_URL}  from '../config.js';
-import { FETCH_MOVIES, FETCH_MOVIE } from './types';
+import { FETCH_MOVIES, FETCH_MOVIE, RESET_STORE } from './types';
 
 export function fetchMovies(term) {
   const urlPopular = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
@@ -26,5 +26,11 @@ export function fetchMovie(id) {
   return {
     type: FETCH_MOVIE,
     payload: request,
+  };
+}
+
+export function resetStore() {
+  return {
+    type: RESET_STORE ,
   };
 }

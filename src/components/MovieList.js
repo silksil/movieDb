@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMovie } from '../actions/index';
 import { Link } from 'react-router-dom';
-import _ from 'lodash';
 import { IMAGE_URL } from '../config';
 
-class VideoList extends Component {
+class MovieList extends Component {
   render() {
     const movies = this.props.movies;
-    return _.map(movies, movie => {
+    if (movies.length == 0) {
+      return <div className="loader"> loading </div>;
+    }
+
+    return movies.map(movie => {
       return (
         <li key={movie.id}>
           <Link to={`/movie/${movie.id}`}>
@@ -27,4 +30,4 @@ function mapStateToProps({ movies }) {
   return { movies };
 }
 
-export default connect(mapStateToProps, { fetchMovie })(VideoList);
+export default connect(mapStateToProps, { fetchMovie })(MovieList);
