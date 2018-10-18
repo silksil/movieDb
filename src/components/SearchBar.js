@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMovies, resetStore } from '../actions/index';
-import _ from 'lodash';
 
 class SearchBar extends Component {
   constructor(props) {

@@ -30,7 +30,5 @@ export function fetchMovie(id) {
 }
 
 export function resetStore() {
-  return {
-    type: RESET_STORE ,
-  };
+  return { type: RESET_STORE };
 }

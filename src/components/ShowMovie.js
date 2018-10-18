@@ -15,16 +15,19 @@ class ShowMovie extends Component {
   }
 
   renderTrailer(trailers){
+    console.log(trailers)
     if (!Array.isArray(trailers) || !trailers.length ) {
       return <div> No trailer available </div>;
     }
     return trailers.map(trailer => {
+      const videoTitle = trailer.name;
       const videoId = trailer.id;
       const videoKey = trailer.key;
       const url = `https://www.youtube.com/embed/${videoKey}`;
 
       return (
         <li key={videoId}>
+          <p> {videoTitle} </p>
           <iframe src={url}/>
         </li>
       );
@@ -56,4 +59,4 @@ function mapStateToProps({ movie }) {
   return { movie };
 }
 
-export default connect(mapStateToProps, { fetchMovie, resetStore })(withRouter(ShowMovie));
+export default connect(mapStateToProps, { fetchMovie, resetStore })(ShowMovie);
