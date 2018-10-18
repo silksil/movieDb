@@ -10,7 +10,7 @@ class Home extends Component {
         <SearchBar />
         <MovieList />
       </div>
-    )
+    );
   }
 }
 

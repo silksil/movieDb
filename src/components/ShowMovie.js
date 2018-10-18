@@ -11,7 +11,7 @@ class ShowMovie extends Component {
 
   renderTrailer(trailers){
     if (!Array.isArray(trailers) || !trailers.length ) {
-      return <div> No trailer available </div>
+      return <div> No trailer available </div>;
     }
     return trailers.map(trailer => {
       const videoId = trailer.id;
@@ -22,7 +22,7 @@ class ShowMovie extends Component {
         <li key={videoId}>
           <iframe src={url}/>
         </li>
-      )
+      );
     });
   }
 
