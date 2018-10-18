@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import SearchBar from './SearchBar'
 import MovieList from './MovieList';
 import { fetchMovies, resetStore } from '../actions/index';
