@@ -23,8 +23,8 @@ class Home extends Component {
     this.props.resetStore();
     this.setState({ page: 1, term }, () => {
       this.props.fetchMovies(this.state.term, this.state.page);
-    })
-  };
+    });
+  }
 
   loadMore(){
     this.setState({ page: this.state.page + 1 }, () => {
