@@ -20,6 +20,7 @@ class MovieList extends Component {
       );
    });
   }
+
   render() {
     const movies = this.props.movies;
     if (!movies.length) {
