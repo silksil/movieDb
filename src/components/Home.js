@@ -16,7 +16,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchMovies(this.state.term);
+    this.props.fetchMovies(this.state.term, this.state.page);
   }
 
   videoSearch(term){
